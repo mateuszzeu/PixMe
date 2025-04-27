@@ -10,7 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     let receivedImageView = UIImageView()
-    let pixMessageLabel = UILabel()
+    let pixMessageField = UILabel()
     let sendPixButton = UIButton(type: .system)
     
     override func viewDidLoad() {
@@ -21,16 +21,16 @@ class MainViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(receivedImageView)
-        view.addSubview(pixMessageLabel)
+        view.addSubview(pixMessageField)
         view.addSubview(sendPixButton)
         
+        receivedImageView.translatesAutoresizingMaskIntoConstraints = false
         receivedImageView.image = UIImage(systemName: "photo")
         receivedImageView.contentMode = .scaleAspectFit
-        receivedImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        pixMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-        pixMessageLabel.textAlignment = .center
-        pixMessageLabel.attributedText = NSAttributedString(
+        pixMessageField.translatesAutoresizingMaskIntoConstraints = false
+        pixMessageField.textAlignment = .center
+        pixMessageField.attributedText = NSAttributedString(
             string: "You've got a Pix!",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 16),
@@ -53,11 +53,11 @@ class MainViewController: UIViewController {
             receivedImageView.widthAnchor.constraint(equalToConstant: 100),
             receivedImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            pixMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pixMessageLabel.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 16),
+            pixMessageField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pixMessageField.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 16),
             
             sendPixButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sendPixButton.topAnchor.constraint(equalTo: pixMessageLabel.bottomAnchor, constant: 24),
+            sendPixButton.topAnchor.constraint(equalTo: pixMessageField.bottomAnchor, constant: 24),
             sendPixButton.widthAnchor.constraint(equalToConstant: 200),
             sendPixButton.heightAnchor.constraint(equalToConstant: 44)
         ])
