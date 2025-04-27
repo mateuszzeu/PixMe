@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
+        textFieldDidChange()
     }
     
     private func setupUI() {
@@ -30,6 +31,7 @@ class RegisterViewController: UIViewController {
         emailField.borderStyle = .roundedRect
         emailField.keyboardType = .emailAddress
         emailField.returnKeyType = .next
+        emailField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         emailField.attributedPlaceholder = NSAttributedString(
             string: "Your email...",
             attributes: [
@@ -41,6 +43,7 @@ class RegisterViewController: UIViewController {
         nicknameField.translatesAutoresizingMaskIntoConstraints = false
         nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
+        nicknameField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         nicknameField.attributedPlaceholder = NSAttributedString(
             string: "Your nickname...",
             attributes: [
@@ -53,6 +56,7 @@ class RegisterViewController: UIViewController {
         passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
         passwordField.returnKeyType = .done
+        passwordField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordField.attributedPlaceholder = NSAttributedString(
             string: "password...",
             attributes: [
@@ -62,6 +66,8 @@ class RegisterViewController: UIViewController {
         )
         
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.addTarget(self, action: #selector(createUser), for: .touchUpInside)
+        createAccountButton.isEnabled = false
         createAccountButton.setAttributedTitle(NSAttributedString(
             string: "Register",
             attributes: [
@@ -89,5 +95,22 @@ class RegisterViewController: UIViewController {
             createAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             createAccountButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20)
         ])
+    }
+    
+    private func allFieldsFilled() -> Bool {
+        [emailField, nicknameField, passwordField].allSatisfy { !($0.text?.isEmpty ?? true) }
+    }
+    
+    @objc private func createUser() {
+        let email = emailField.text ?? ""
+        let nickname = nicknameField.text ?? ""
+        let password = passwordField.text ?? ""
+        
+        UserService.createUser(email: email, nickname: nickname, password: password)
+    }
+    
+    @objc private func textFieldDidChange() {
+        createAccountButton.isEnabled = allFieldsFilled()
+        createAccountButton.alpha = allFieldsFilled() ? 1.0 : 0.5
     }
 }
