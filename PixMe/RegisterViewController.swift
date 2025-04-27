@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  PixMe
 //
 //  Created by Liza on 27/04/2025.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
+    let emailField = UITextField()
     let nicknameField = UITextField()
     let passwordField = UITextField()
-    let logInButton = UIButton(type: .system)
-    let registerButton = UIButton(type: .system)
+    let createAccountButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,28 @@ class LoginViewController: UIViewController {
     }
     
     private func setupUI() {
+        view.addSubview(emailField)
         view.addSubview(nicknameField)
         view.addSubview(passwordField)
-        view.addSubview(logInButton)
-        view.addSubview(registerButton)
+        view.addSubview(createAccountButton)
+        
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        emailField.borderStyle = .roundedRect
+        emailField.keyboardType = .emailAddress
+        emailField.returnKeyType = .next
+        emailField.attributedPlaceholder = NSAttributedString(
+            string: "Your email...",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 15),
+                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
+            ]
+        )
         
         nicknameField.translatesAutoresizingMaskIntoConstraints = false
         nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
         nicknameField.attributedPlaceholder = NSAttributedString(
-            string: "Write your nickname...",
+            string: "Your nickname...",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 15),
                 .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
@@ -40,35 +52,32 @@ class LoginViewController: UIViewController {
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
+        passwordField.returnKeyType = .done
         passwordField.attributedPlaceholder = NSAttributedString(
-            string: "Write your password...",
+            string: "password...",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 15),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25),
+                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
             ]
         )
         
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.setAttributedTitle(NSAttributedString(
-            string: "Log In",
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.setAttributedTitle(NSAttributedString(
+            string: "Register",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 16),
                 .foregroundColor: UIColor.label
             ]
         ), for: .normal)
         
-        registerButton.translatesAutoresizingMaskIntoConstraints = false
-        registerButton.setAttributedTitle(NSAttributedString(
-            string: "Don't have an account yet? Click here!",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 11),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.50)
-            ]
-        ), for: .normal)
-        
         NSLayoutConstraint.activate([
+            emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emailField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            emailField.widthAnchor.constraint(equalToConstant: 250),
+            emailField.heightAnchor.constraint(equalToConstant: 35),
+            
             nicknameField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nicknameField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            nicknameField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20),
             nicknameField.widthAnchor.constraint(equalToConstant: 250),
             nicknameField.heightAnchor.constraint(equalToConstant: 35),
             
@@ -77,11 +86,8 @@ class LoginViewController: UIViewController {
             passwordField.widthAnchor.constraint(equalToConstant: 250),
             passwordField.heightAnchor.constraint(equalToConstant: 35),
             
-            logInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logInButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 30),
-            
-            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registerButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 20),
+            createAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            createAccountButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20)
         ])
     }
 }
