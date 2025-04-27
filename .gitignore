@@ -1,0 +1,9 @@
+DerivedData/
+*.xcworkspace
+*.xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+.build/
+*.DS_Store
+*.log
