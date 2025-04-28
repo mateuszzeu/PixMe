@@ -25,4 +25,24 @@ struct UserService {
             fatalError("Core Data saving error: \(error.localizedDescription)")
         }
     }
+    
+    static func authenticateUser(nickname: String, password: String) -> Bool {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = User.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "nickname == %@ AND password == %@", nickname, password)
+        
+        do {
+            let user = try context.fetch(request)
+            
+            if let _ = user.first {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            context.rollback()
+            fatalError("Core Data fetching error: \(error.localizedDescription)")
+        }
+    }
 }

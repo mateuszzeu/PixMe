@@ -107,6 +107,10 @@ class RegisterViewController: UIViewController {
         let password = passwordField.text ?? ""
         
         UserService.createUser(email: email, nickname: nickname, password: password)
+        
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: true)
     }
     
     @objc private func textFieldDidChange() {

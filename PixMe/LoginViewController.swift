@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
         )
         
         logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.addTarget(self, action: #selector(logInUser), for: .touchUpInside)
         logInButton.setAttributedTitle(NSAttributedString(
             string: "Log In",
             attributes: [
@@ -58,6 +59,7 @@ class LoginViewController: UIViewController {
         ), for: .normal)
         
         registerButton.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.addTarget(self, action: #selector(moveToRegisterView), for: .touchUpInside)
         registerButton.setAttributedTitle(NSAttributedString(
             string: "Don't have an account yet? Click here!",
             attributes: [
@@ -83,5 +85,32 @@ class LoginViewController: UIViewController {
             registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             registerButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 20),
         ])
+    }
+    
+    @objc private func logInUser() {
+        let nickname = nicknameField.text ?? ""
+        let password = passwordField.text ?? ""
+        
+        let success = UserService.authenticateUser(nickname: nickname, password: password)
+        
+        if success {
+            let successAlert = UIAlertController(title: "Success!", message: "You have logged in!", preferredStyle: .alert)
+            successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                let mainVC = MainViewController()
+                mainVC.modalPresentationStyle = .fullScreen
+                self.present(mainVC, animated: true)
+            }))
+            present(successAlert, animated: true)
+        } else {
+            let errorAlert = UIAlertController(title: "Error", message: "Incorrect nickname or password.", preferredStyle: .alert)
+            errorAlert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(errorAlert, animated: true)
+        }
+    }
+    
+    @objc private func moveToRegisterView() {
+        let registerVC = RegisterViewController()
+        registerVC.modalPresentationStyle = .fullScreen
+        present(registerVC, animated: true)
     }
 }
