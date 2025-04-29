@@ -1,28 +1,32 @@
 //
-//  MainViewController.swift
+//  MainView.swift
 //  PixMe
 //
-//  Created by Liza on 26/04/2025.
+//  Created by Liza on 29/04/2025.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainView: UIView {
     
     let receivedImageView = UIImageView()
     let pixMessageField = UILabel()
     let sendPixButton = UIButton(type: .system)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .systemBackground
         setupUI()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupUI() {
-        view.addSubview(receivedImageView)
-        view.addSubview(pixMessageField)
-        view.addSubview(sendPixButton)
+        addSubview(receivedImageView)
+        addSubview(pixMessageField)
+        addSubview(sendPixButton)
         
         receivedImageView.translatesAutoresizingMaskIntoConstraints = false
         receivedImageView.image = UIImage(systemName: "photo")
@@ -48,20 +52,18 @@ class MainViewController: UIViewController {
         ), for: .normal)
         
         NSLayoutConstraint.activate([
-            receivedImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            receivedImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            receivedImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            receivedImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
             receivedImageView.widthAnchor.constraint(equalToConstant: 100),
             receivedImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            pixMessageField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pixMessageField.centerXAnchor.constraint(equalTo: centerXAnchor),
             pixMessageField.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 16),
             
-            sendPixButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            sendPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             sendPixButton.topAnchor.constraint(equalTo: pixMessageField.bottomAnchor, constant: 24),
             sendPixButton.widthAnchor.constraint(equalToConstant: 200),
             sendPixButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }
-
-
