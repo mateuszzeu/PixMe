@@ -12,6 +12,8 @@ class MainView: UIView {
     let receivedImageView = UIImageView()
     let pixMessageField = UILabel()
     let sendPixButton = UIButton(type: .system)
+    let nicknameLabel = UILabel()
+    let logoutButton = UIButton(type: .system)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +29,8 @@ class MainView: UIView {
         addSubview(receivedImageView)
         addSubview(pixMessageField)
         addSubview(sendPixButton)
+        addSubview(nicknameLabel)
+        addSubview(logoutButton)
         
         receivedImageView.translatesAutoresizingMaskIntoConstraints = false
         receivedImageView.image = UIImage(systemName: "photo")
@@ -51,6 +55,20 @@ class MainView: UIView {
             ]
         ), for: .normal)
         
+        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nicknameLabel.textColor = .secondaryLabel
+        nicknameLabel.font = .systemFont(ofSize: 10)
+        nicknameLabel.alpha = 0.5
+        
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        logoutButton.setAttributedTitle(NSAttributedString(
+            string: "Logout",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 16),
+                .foregroundColor: UIColor.label
+            ]
+        ), for: .normal)
+        
         NSLayoutConstraint.activate([
             receivedImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             receivedImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
@@ -63,7 +81,13 @@ class MainView: UIView {
             sendPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             sendPixButton.topAnchor.constraint(equalTo: pixMessageField.bottomAnchor, constant: 24),
             sendPixButton.widthAnchor.constraint(equalToConstant: 200),
-            sendPixButton.heightAnchor.constraint(equalToConstant: 44)
+            sendPixButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nicknameLabel.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -20),
+            
+            logoutButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoutButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
         ])
     }
 }

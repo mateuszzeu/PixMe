@@ -31,13 +31,18 @@ class LoginViewController: UIViewController {
         if success {
             let successAlert = UIAlertController(title: "Success!", message: "You have logged in!", preferredStyle: .alert)
             successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                
+                UserDefaults.standard.set(nickname, forKey: "loggedInNickname")
+                
                 let mainVC = MainViewController()
                 mainVC.modalPresentationStyle = .fullScreen
+                
                 self.present(mainVC, animated: true)
             }))
             present(successAlert, animated: true)
         } else {
             let errorAlert = UIAlertController(title: "Error", message: "Incorrect nickname or password.", preferredStyle: .alert)
+            
             errorAlert.addAction(UIAlertAction(title: "OK", style: .default))
             present(errorAlert, animated: true)
         }
