@@ -44,7 +44,14 @@ class MainViewController: UIViewController {
             let results = try context.fetch(request)
             if let pix = results.first {
                 let image = UIImage(data: pix.imageData)
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "HH:mm"
+                let dateString = formatter.string(from: pix.date)
+                
                 mainView.receivedImageView.image = image
+                mainView.senderNicknameLabel.text = "From \(pix.sender)"
+                mainView.dateReceivedLabel.text = "\(dateString)"
             }
         } catch {
             showAlert(title: "Error", message: "Failed to fetch Pix: \(error).")
