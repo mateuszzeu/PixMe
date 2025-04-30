@@ -36,7 +36,9 @@ class RegisterViewController: UIViewController {
         
         UserService.createUser(email: email, nickname: nickname, password: password)
         
-        navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(nickname, forKey: "loggedInNickname")
+        let mainVC = MainViewController()
+        navigationController?.setViewControllers([mainVC], animated: true)
     }
     
     @objc private func textFieldDidChange() {

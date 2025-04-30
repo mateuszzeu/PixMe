@@ -46,12 +46,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-//    @objc private func moveToRegisterView() {
-//        let registerVC = RegisterViewController()
-//        registerVC.modalPresentationStyle = .fullScreen
-//        present(registerVC, animated: true)
-//    }
-    
     @objc private func moveToRegisterView() {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
