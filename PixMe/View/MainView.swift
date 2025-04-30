@@ -42,9 +42,17 @@ class MainView: UIView {
         addSubview(createPixButton)
         addSubview(logoutButton)
         
+        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nicknameLabel.font = UIFont.systemFont(ofSize: 13)
+        nicknameLabel.textColor = .secondaryLabel
+        
         receivedImageView.translatesAutoresizingMaskIntoConstraints = false
-        receivedImageView.image = UIImage(systemName: "photo")
-        receivedImageView.contentMode = .scaleAspectFit
+        receivedImageView.contentMode = .scaleAspectFill
+        receivedImageView.layer.cornerRadius = 16
+        receivedImageView.clipsToBounds = true
+        receivedImageView.layer.borderColor = UIColor.quaternaryLabel.cgColor
+        receivedImageView.layer.borderWidth = 0.5
+
         
 //        pixMessageField.translatesAutoresizingMaskIntoConstraints = false
 //        pixMessageField.font = UIFont.systemFont(ofSize: 16)
@@ -64,14 +72,9 @@ class MainView: UIView {
         dateReceivedLabel.text = ""
 
         createPixButton.translatesAutoresizingMaskIntoConstraints = false
-        createPixButton.setTitle("Pix someone", for: .normal)
-        createPixButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        createPixButton.setTitleColor(.label, for: .normal)
-
-        nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nicknameLabel.font = UIFont.systemFont(ofSize: 10)
-        nicknameLabel.textColor = .secondaryLabel
-        nicknameLabel.alpha = 0.5
+        createPixButton.setTitle("Send a Pix ✨", for: .normal)
+        createPixButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        createPixButton.setTitleColor(.secondaryLabel, for: .normal)
 
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.setTitle("Logout", for: .normal)
@@ -79,30 +82,30 @@ class MainView: UIView {
         logoutButton.setTitleColor(.label, for: .normal)
         
         NSLayoutConstraint.activate([
+            nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nicknameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            
             receivedImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            receivedImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
-            receivedImageView.widthAnchor.constraint(equalToConstant: 100),
-            receivedImageView.heightAnchor.constraint(equalToConstant: 100),
+            receivedImageView.topAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: 20),
+            receivedImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            receivedImageView.heightAnchor.constraint(equalTo: receivedImageView.widthAnchor),
             
 //            pixMessageField.centerXAnchor.constraint(equalTo: centerXAnchor),
 //            pixMessageField.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 16),
             
             senderNicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            senderNicknameLabel.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 24),
+            senderNicknameLabel.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 15),
             
             dateReceivedLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             dateReceivedLabel.topAnchor.constraint(equalTo: senderNicknameLabel.bottomAnchor, constant: 5),
             
             createPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            createPixButton.topAnchor.constraint(equalTo: dateReceivedLabel.bottomAnchor, constant: 24),
+            createPixButton.topAnchor.constraint(equalTo: dateReceivedLabel.bottomAnchor, constant: 80),
             createPixButton.widthAnchor.constraint(equalToConstant: 200),
             createPixButton.heightAnchor.constraint(equalToConstant: 44),
             
-            nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nicknameLabel.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -20),
-            
             logoutButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            logoutButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            logoutButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
 }

@@ -32,35 +32,26 @@ class CreatePixView: UIView {
         
         recipientNameField.translatesAutoresizingMaskIntoConstraints = false
         recipientNameField.borderStyle = .roundedRect
-        recipientNameField.attributedPlaceholder = NSAttributedString(
-            string: "Write recipient nickname...",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 15),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
-            ]
-        )
-        
+        recipientNameField.autocapitalizationType = .none
+        recipientNameField.font = UIFont.systemFont(ofSize: 15)
+        recipientNameField.textColor = .label
+        recipientNameField.placeholder = "Write recipient nickname..."
+
         pickImageButton.translatesAutoresizingMaskIntoConstraints = false
-        pickImageButton.setAttributedTitle(NSAttributedString(
-            string: "Pick image",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 16),
-                .foregroundColor: UIColor.label
-            ]
-        ), for: .normal)
-        
+        pickImageButton.setTitle("Pick image", for: .normal)
+        pickImageButton.setTitleColor(.label, for: .normal)
+        pickImageButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
         imageView.backgroundColor = .systemGray6
-        
+
         sendPixButton.translatesAutoresizingMaskIntoConstraints = false
-        sendPixButton.setAttributedTitle(NSAttributedString(
-            string: "Pix It!",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 16),
-                .foregroundColor: UIColor.label
-            ]
-        ), for: .normal)
+        sendPixButton.setTitle("Pix it! ✨", for: .normal)
+        sendPixButton.setTitleColor(.secondaryLabel, for: .normal)
+        sendPixButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         
         NSLayoutConstraint.activate([
             recipientNameField.centerXAnchor.constraint(equalTo: centerXAnchor),

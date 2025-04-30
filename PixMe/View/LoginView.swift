@@ -31,61 +31,50 @@ class LoginView: UIView {
         addSubview(registerButton)
         
         nicknameField.translatesAutoresizingMaskIntoConstraints = false
+        nicknameField.autocapitalizationType = .none
         nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
-        nicknameField.attributedPlaceholder = NSAttributedString(
-            string: "Write your nickname...",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 15),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
-            ]
-        )
-        
+        nicknameField.font = UIFont.systemFont(ofSize: 15)
+        nicknameField.textColor = .label
+        nicknameField.placeholder = "Write your nickname..."
+
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
-        passwordField.attributedPlaceholder = NSAttributedString(
-            string: "Write your password...",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 15),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25),
-            ]
-        )
-        
+        passwordField.font = UIFont.systemFont(ofSize: 15)
+        passwordField.textColor = .label
+        passwordField.placeholder = "Write your password..."
+
         logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.setAttributedTitle(NSAttributedString(
-            string: "Log In",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 16),
-                .foregroundColor: UIColor.label
-            ]
-        ), for: .normal)
-        
+        logInButton.setTitle("Log in", for: .normal)
+        logInButton.setTitleColor(.secondaryLabel, for: .normal)
+        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+
         registerButton.translatesAutoresizingMaskIntoConstraints = false
-        registerButton.setAttributedTitle(NSAttributedString(
-            string: "Don't have an account yet? Click here!",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 11),
-                .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.50)
-            ]
-        ), for: .normal)
+        registerButton.setTitle("Don't have an account? Sign up!", for: .normal)
+        registerButton.setTitleColor(.systemBlue, for: .normal)
+        registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         
         NSLayoutConstraint.activate([
             nicknameField.centerXAnchor.constraint(equalTo: centerXAnchor),
             nicknameField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
             nicknameField.widthAnchor.constraint(equalToConstant: 250),
             nicknameField.heightAnchor.constraint(equalToConstant: 35),
+            nicknameField.widthAnchor.constraint(equalToConstant: 350),
             
             passwordField.centerXAnchor.constraint(equalTo: centerXAnchor),
             passwordField.topAnchor.constraint(equalTo: nicknameField.bottomAnchor, constant: 20),
             passwordField.widthAnchor.constraint(equalToConstant: 250),
             passwordField.heightAnchor.constraint(equalToConstant: 35),
+            passwordField.widthAnchor.constraint(equalTo: nicknameField.widthAnchor),
             
             logInButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             logInButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 30),
+            logInButton.widthAnchor.constraint(equalTo: nicknameField.widthAnchor),
             
             registerButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             registerButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 20),
+            registerButton.widthAnchor.constraint(equalTo: nicknameField.widthAnchor),
         ])
     }
 }
