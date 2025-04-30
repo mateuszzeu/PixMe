@@ -10,7 +10,8 @@ import UIKit
 class CreatePixView: UIView {
     
     let recipentNameField = UITextField()
-    let pickImageButton = UIButton()
+    let pickImageButton = UIButton(type: .system)
+    let imageView = UIImageView()
     let sendPixButton = UIButton()
     
     override init(frame: CGRect) {
@@ -26,6 +27,7 @@ class CreatePixView: UIView {
     private func setupUI() {
         addSubview(recipentNameField)
         addSubview(pickImageButton)
+        addSubview(imageView)
         addSubview(sendPixButton)
         
         recipentNameField.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +49,10 @@ class CreatePixView: UIView {
             ]
         ), for: .normal)
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .systemGray6
+        
         sendPixButton.translatesAutoresizingMaskIntoConstraints = false
         sendPixButton.setAttributedTitle(NSAttributedString(
             string: "Pix It!",
@@ -65,8 +71,13 @@ class CreatePixView: UIView {
             pickImageButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             pickImageButton.topAnchor.constraint(equalTo: recipentNameField.bottomAnchor, constant: 20),
             
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: pickImageButton.bottomAnchor, constant: 20),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            
             sendPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            sendPixButton.topAnchor.constraint(equalTo: pickImageButton.bottomAnchor, constant: 20)
+            sendPixButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20)
         ])
     }
 }
