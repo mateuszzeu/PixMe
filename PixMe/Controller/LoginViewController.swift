@@ -29,20 +29,14 @@ class LoginViewController: UIViewController {
         let success = UserService.authenticateUser(nickname: nickname, password: password)
         
         if success {
-            let successAlert = UIAlertController(title: "Success!", message: "You have logged in!", preferredStyle: .alert)
-            successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                
+            showAlert(title: "Success!", message: "You have logged in!") {
                 UserDefaults.standard.set(nickname, forKey: "loggedInNickname")
                 
                 let mainVC = MainViewController()
                 self.navigationController?.setViewControllers([mainVC], animated: true)
-            }))
-            present(successAlert, animated: true)
+            }
         } else {
-            let errorAlert = UIAlertController(title: "Error", message: "Incorrect nickname or password.", preferredStyle: .alert)
-            
-            errorAlert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(errorAlert, animated: true)
+            showAlert(title: "Error", message: "Incorrect nickname or password.")
         }
     }
     

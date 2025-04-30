@@ -23,7 +23,28 @@ class CreatePixViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @objc private func sendPix() {
-        navigationController?.popViewController(animated: true)
+        guard let sender = UserDefaults.standard.string(forKey: "loggedInNickname"),
+              let recipient = createPixView.recipientNameField.text, !recipient.isEmpty,
+              let image = createPixView.imageView.image, let imageData = image.jpegData(compressionQuality: 0.8)
+        else {
+            showAlert(title: "Missing Info", message: "Please enter a recipient and pick an image.")
+            return
+        }
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let pix = Pix(context: context)
+        pix.sender = sender
+        pix.recipient = recipient
+        pix.imageData = imageData
+        pix.date = Date()
+        
+        do {
+            try context.save()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            showAlert(title: "Error", message: "Failed to send your Pix. Please try again.")
+        }
     }
     
     @objc private func openImagePicker() {

@@ -9,7 +9,7 @@ import UIKit
 
 class CreatePixView: UIView {
     
-    let recipentNameField = UITextField()
+    let recipientNameField = UITextField()
     let pickImageButton = UIButton(type: .system)
     let imageView = UIImageView()
     let sendPixButton = UIButton()
@@ -25,15 +25,15 @@ class CreatePixView: UIView {
     }
     
     private func setupUI() {
-        addSubview(recipentNameField)
+        addSubview(recipientNameField)
         addSubview(pickImageButton)
         addSubview(imageView)
         addSubview(sendPixButton)
         
-        recipentNameField.translatesAutoresizingMaskIntoConstraints = false
-        recipentNameField.borderStyle = .roundedRect
-        recipentNameField.attributedPlaceholder = NSAttributedString(
-            string: "Write recipent nickname...",
+        recipientNameField.translatesAutoresizingMaskIntoConstraints = false
+        recipientNameField.borderStyle = .roundedRect
+        recipientNameField.attributedPlaceholder = NSAttributedString(
+            string: "Write recipient nickname...",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 15),
                 .foregroundColor: UIColor.secondaryLabel.withAlphaComponent(0.25)
@@ -63,13 +63,13 @@ class CreatePixView: UIView {
         ), for: .normal)
         
         NSLayoutConstraint.activate([
-            recipentNameField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            recipentNameField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
-            recipentNameField.widthAnchor.constraint(equalToConstant: 250),
-            recipentNameField.heightAnchor.constraint(equalToConstant: 35),
+            recipientNameField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            recipientNameField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
+            recipientNameField.widthAnchor.constraint(equalToConstant: 250),
+            recipientNameField.heightAnchor.constraint(equalToConstant: 35),
             
             pickImageButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pickImageButton.topAnchor.constraint(equalTo: recipentNameField.bottomAnchor, constant: 20),
+            pickImageButton.topAnchor.constraint(equalTo: recipientNameField.bottomAnchor, constant: 20),
             
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: pickImageButton.bottomAnchor, constant: 20),

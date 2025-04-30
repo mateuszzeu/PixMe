@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class MainViewController: UIViewController {
         view = mainView
         setupAction()
         loadNickname()
+        loadReceivedPix()
     }
     
     private func setupAction() {
@@ -26,6 +28,27 @@ class MainViewController: UIViewController {
     private func loadNickname() {
         let nickname = UserDefaults.standard.string(forKey: "loggedInNickname") ?? "Unknown User"
         mainView.nicknameLabel.text = "Hello \(nickname)"
+    }
+    
+    private func loadReceivedPix() {
+        guard let nickname = UserDefaults.standard.string(forKey: "loggedInNickname") else { return }
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = Pix.fetchRequest() as! NSFetchRequest<Pix>
+        
+        request.predicate = NSPredicate(format: "recipient == %@", nickname)
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        request.fetchLimit = 1
+        
+        do {
+            let results = try context.fetch(request)
+            if let pix = results.first {
+                let image = UIImage(data: pix.imageData)
+                mainView.receivedImageView.image = image
+            }
+        } catch {
+            showAlert(title: "Error", message: "Failed to fetch Pix: \(error).")
+        }
     }
     
     @objc private func logoutTapped() {
