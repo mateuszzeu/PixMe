@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     
     private func setupAction() {
         mainView.logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
+        mainView.createPixButton.addTarget(self, action: #selector(createPixViewView), for: .touchUpInside)
     }
     
     private func loadNickname() {
@@ -30,8 +31,12 @@ class MainViewController: UIViewController {
     @objc private func logoutTapped() {
         UserDefaults.standard.removeObject(forKey: "loggedInNickname")
         let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: true)
+        navigationController?.setViewControllers([loginVC], animated: true)
+    }
+    
+    @objc private func createPixViewView() {
+        let createVC = CreatePixViewController()
+        navigationController?.pushViewController(createVC, animated: true)
     }
 }
 

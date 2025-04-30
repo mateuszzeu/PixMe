@@ -35,9 +35,7 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(nickname, forKey: "loggedInNickname")
                 
                 let mainVC = MainViewController()
-                mainVC.modalPresentationStyle = .fullScreen
-                
-                self.present(mainVC, animated: true)
+                self.navigationController?.setViewControllers([mainVC], animated: true)
             }))
             present(successAlert, animated: true)
         } else {
@@ -48,9 +46,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+//    @objc private func moveToRegisterView() {
+//        let registerVC = RegisterViewController()
+//        registerVC.modalPresentationStyle = .fullScreen
+//        present(registerVC, animated: true)
+//    }
+    
     @objc private func moveToRegisterView() {
         let registerVC = RegisterViewController()
-        registerVC.modalPresentationStyle = .fullScreen
-        present(registerVC, animated: true)
+        navigationController?.pushViewController(registerVC, animated: true)
     }
 }

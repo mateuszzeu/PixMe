@@ -11,7 +11,7 @@ class MainView: UIView {
     
     let receivedImageView = UIImageView()
     let pixMessageField = UILabel()
-    let sendPixButton = UIButton(type: .system)
+    let createPixButton = UIButton(type: .system)
     let nicknameLabel = UILabel()
     let logoutButton = UIButton(type: .system)
     
@@ -28,7 +28,7 @@ class MainView: UIView {
     private func setupUI() {
         addSubview(receivedImageView)
         addSubview(pixMessageField)
-        addSubview(sendPixButton)
+        addSubview(createPixButton)
         addSubview(nicknameLabel)
         addSubview(logoutButton)
         
@@ -37,7 +37,6 @@ class MainView: UIView {
         receivedImageView.contentMode = .scaleAspectFit
         
         pixMessageField.translatesAutoresizingMaskIntoConstraints = false
-        pixMessageField.textAlignment = .center
         pixMessageField.attributedText = NSAttributedString(
             string: "You've got a Pix!",
             attributes: [
@@ -46,8 +45,8 @@ class MainView: UIView {
             ]
         )
         
-        sendPixButton.translatesAutoresizingMaskIntoConstraints = false
-        sendPixButton.setAttributedTitle(NSAttributedString(
+        createPixButton.translatesAutoresizingMaskIntoConstraints = false
+        createPixButton.setAttributedTitle(NSAttributedString(
             string: "Pix someone",
             attributes: [
                 .font: UIFont.systemFont(ofSize: 16),
@@ -78,10 +77,10 @@ class MainView: UIView {
             pixMessageField.centerXAnchor.constraint(equalTo: centerXAnchor),
             pixMessageField.topAnchor.constraint(equalTo: receivedImageView.bottomAnchor, constant: 16),
             
-            sendPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            sendPixButton.topAnchor.constraint(equalTo: pixMessageField.bottomAnchor, constant: 24),
-            sendPixButton.widthAnchor.constraint(equalToConstant: 200),
-            sendPixButton.heightAnchor.constraint(equalToConstant: 44),
+            createPixButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            createPixButton.topAnchor.constraint(equalTo: pixMessageField.bottomAnchor, constant: 24),
+            createPixButton.widthAnchor.constraint(equalToConstant: 200),
+            createPixButton.heightAnchor.constraint(equalToConstant: 44),
             
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nicknameLabel.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -20),

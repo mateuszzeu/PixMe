@@ -36,9 +36,7 @@ class RegisterViewController: UIViewController {
         
         UserService.createUser(email: email, nickname: nickname, password: password)
         
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        present(loginVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func textFieldDidChange() {
