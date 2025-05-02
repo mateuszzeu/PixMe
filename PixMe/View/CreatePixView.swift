@@ -30,27 +30,19 @@ class CreatePixView: UIView {
         addSubview(imageView)
         addSubview(sendPixButton)
         
-        recipientNameField.translatesAutoresizingMaskIntoConstraints = false
-        recipientNameField.layer.cornerRadius = AppStyle.Metrics.cornerRadius
-        recipientNameField.layer.borderWidth = AppStyle.Metrics.borderWidth
-        recipientNameField.layer.borderColor = AppStyle.Colors.border.cgColor
-        recipientNameField.autocapitalizationType = .none
-        recipientNameField.font = AppStyle.Fonts.textField
-        recipientNameField.textColor = AppStyle.Colors.textPrimary
-        recipientNameField.placeholder = "Write recipient nickname..."
-        recipientNameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: AppStyle.Metrics.textFieldLeftPadding, height: AppStyle.Metrics.textFieldHeight))
-        recipientNameField.leftViewMode = .always
+        recipientNameField.applyInputFieldStyle(placeholder: "Write recipient nickname...")
 
         pickImageButton.translatesAutoresizingMaskIntoConstraints = false
-        var config = UIButton.Configuration.borderedTinted()
+
+        var config = UIButton.Configuration.tinted()
         config.title = "Pick Image"
         config.image = UIImage(systemName: "photo.on.rectangle")
         config.imagePadding = 8
         config.imagePlacement = .leading
-        config.baseBackgroundColor = AppStyle.Colors.textSecondary
-        config.baseForegroundColor = AppStyle.Colors.textPrimary
         config.cornerStyle = .capsule
-        config.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 20, bottom: 14, trailing: 20)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20)
+        config.baseForegroundColor = AppStyle.Colors.buttonSecondaryText
+
         pickImageButton.configuration = config
 
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -16,7 +16,7 @@ class RegisterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = AppStyle.Colors.background
         setupUI()
     }
     
@@ -30,30 +30,18 @@ class RegisterView: UIView {
         addSubview(passwordField)
         addSubview(createAccountButton)
         
-        emailField.translatesAutoresizingMaskIntoConstraints = false
         emailField.autocapitalizationType = .none
-        emailField.borderStyle = .roundedRect
         emailField.keyboardType = .emailAddress
         emailField.returnKeyType = .next
-        emailField.font = AppStyle.Fonts.textField
-        emailField.textColor = AppStyle.Colors.textPrimary
-        emailField.placeholder = "Your email..."
+        emailField.applyInputFieldStyle(placeholder: "Your email...")
 
-        nicknameField.translatesAutoresizingMaskIntoConstraints = false
         nicknameField.autocapitalizationType = .none
-        nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
-        nicknameField.font = AppStyle.Fonts.textField
-        nicknameField.textColor = AppStyle.Colors.textPrimary
-        nicknameField.placeholder = "Your nickname..."
+        nicknameField.applyInputFieldStyle(placeholder: "Your nickname...")
 
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
         passwordField.returnKeyType = .done
-        passwordField.font = AppStyle.Fonts.textField
-        passwordField.textColor = AppStyle.Colors.textPrimary
-        passwordField.placeholder = "Password..."
+        passwordField.applyInputFieldStyle(placeholder: "Password...")
 
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
         createAccountButton.setTitle("Register", for: .normal)

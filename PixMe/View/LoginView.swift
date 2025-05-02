@@ -30,20 +30,13 @@ class LoginView: UIView {
         addSubview(logInButton)
         addSubview(registerButton)
         
-        nicknameField.translatesAutoresizingMaskIntoConstraints = false
         nicknameField.autocapitalizationType = .none
-        nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
-        nicknameField.font = AppStyle.Fonts.textField
-        nicknameField.textColor = AppStyle.Colors.textPrimary
-        nicknameField.placeholder = "Write your nickname..."
+        nicknameField.applyInputFieldStyle(placeholder: "Write your nickname...")
 
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
-        passwordField.font = AppStyle.Fonts.textField
-        passwordField.textColor = AppStyle.Colors.textPrimary
-        passwordField.placeholder = "Write your password..."
+        passwordField.returnKeyType = .done
+        passwordField.applyInputFieldStyle(placeholder: "Write your password...")
 
         logInButton.translatesAutoresizingMaskIntoConstraints = false
         logInButton.setTitle("Log in", for: .normal)
