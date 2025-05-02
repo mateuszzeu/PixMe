@@ -16,7 +16,7 @@ class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = AppStyle.Colors.background
         setupUI()
     }
     
@@ -34,26 +34,26 @@ class LoginView: UIView {
         nicknameField.autocapitalizationType = .none
         nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
-        nicknameField.font = UIFont.systemFont(ofSize: 15)
-        nicknameField.textColor = .label
+        nicknameField.font = AppStyle.Fonts.textField
+        nicknameField.textColor = AppStyle.Colors.textPrimary
         nicknameField.placeholder = "Write your nickname..."
 
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
-        passwordField.font = UIFont.systemFont(ofSize: 15)
-        passwordField.textColor = .label
+        passwordField.font = AppStyle.Fonts.textField
+        passwordField.textColor = AppStyle.Colors.textPrimary
         passwordField.placeholder = "Write your password..."
 
         logInButton.translatesAutoresizingMaskIntoConstraints = false
         logInButton.setTitle("Log in", for: .normal)
-        logInButton.setTitleColor(.secondaryLabel, for: .normal)
-        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        logInButton.setTitleColor(AppStyle.Colors.textSecondary, for: .normal)
+        logInButton.titleLabel?.font = AppStyle.Fonts.buttonPrimary
 
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.setTitle("Don't have an account? Sign up!", for: .normal)
-        registerButton.setTitleColor(.systemBlue, for: .normal)
-        registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        registerButton.setTitleColor(AppStyle.Colors.buttonSecondaryText, for: .normal)
+        registerButton.titleLabel?.font = AppStyle.Fonts.buttonSecondary
         
         NSLayoutConstraint.activate([
             nicknameField.centerXAnchor.constraint(equalTo: centerXAnchor),

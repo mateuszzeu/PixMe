@@ -35,31 +35,31 @@ class RegisterView: UIView {
         emailField.borderStyle = .roundedRect
         emailField.keyboardType = .emailAddress
         emailField.returnKeyType = .next
-        emailField.font = UIFont.systemFont(ofSize: 15)
-        emailField.textColor = .label
+        emailField.font = AppStyle.Fonts.textField
+        emailField.textColor = AppStyle.Colors.textPrimary
         emailField.placeholder = "Your email..."
 
         nicknameField.translatesAutoresizingMaskIntoConstraints = false
         nicknameField.autocapitalizationType = .none
         nicknameField.borderStyle = .roundedRect
         nicknameField.returnKeyType = .next
-        nicknameField.font = UIFont.systemFont(ofSize: 15)
-        nicknameField.textColor = .label
+        nicknameField.font = AppStyle.Fonts.textField
+        nicknameField.textColor = AppStyle.Colors.textPrimary
         nicknameField.placeholder = "Your nickname..."
 
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.borderStyle = .roundedRect
         passwordField.isSecureTextEntry = true
         passwordField.returnKeyType = .done
-        passwordField.font = UIFont.systemFont(ofSize: 15)
-        passwordField.textColor = .label
+        passwordField.font = AppStyle.Fonts.textField
+        passwordField.textColor = AppStyle.Colors.textPrimary
         passwordField.placeholder = "Password..."
 
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
         createAccountButton.setTitle("Register", for: .normal)
         createAccountButton.isEnabled = false
-        createAccountButton.setTitleColor(.secondaryLabel, for: .normal)
-        createAccountButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        createAccountButton.setTitleColor(AppStyle.Colors.textSecondary, for: .normal)
+        createAccountButton.titleLabel?.font = AppStyle.Fonts.buttonPrimary
         
         NSLayoutConstraint.activate([
             emailField.centerXAnchor.constraint(equalTo: centerXAnchor),

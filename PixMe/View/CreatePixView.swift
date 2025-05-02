@@ -16,7 +16,7 @@ class CreatePixView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = AppStyle.Colors.background
         setupUI()
     }
     
@@ -31,14 +31,14 @@ class CreatePixView: UIView {
         addSubview(sendPixButton)
         
         recipientNameField.translatesAutoresizingMaskIntoConstraints = false
-        recipientNameField.layer.cornerRadius = 16
-        recipientNameField.layer.borderWidth = 0.5
-        recipientNameField.layer.borderColor = UIColor.quaternaryLabel.cgColor
+        recipientNameField.layer.cornerRadius = AppStyle.Metrics.cornerRadius
+        recipientNameField.layer.borderWidth = AppStyle.Metrics.borderWidth
+        recipientNameField.layer.borderColor = AppStyle.Colors.border.cgColor
         recipientNameField.autocapitalizationType = .none
-        recipientNameField.font = UIFont.systemFont(ofSize: 15)
-        recipientNameField.textColor = .label
+        recipientNameField.font = AppStyle.Fonts.textField
+        recipientNameField.textColor = AppStyle.Colors.textPrimary
         recipientNameField.placeholder = "Write recipient nickname..."
-        recipientNameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
+        recipientNameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: AppStyle.Metrics.textFieldLeftPadding, height: AppStyle.Metrics.textFieldHeight))
         recipientNameField.leftViewMode = .always
 
         pickImageButton.translatesAutoresizingMaskIntoConstraints = false
@@ -47,23 +47,23 @@ class CreatePixView: UIView {
         config.image = UIImage(systemName: "photo.on.rectangle")
         config.imagePadding = 8
         config.imagePlacement = .leading
-        config.baseBackgroundColor = .secondaryLabel
-        config.baseForegroundColor = .white
+        config.baseBackgroundColor = AppStyle.Colors.textSecondary
+        config.baseForegroundColor = AppStyle.Colors.textPrimary
         config.cornerStyle = .capsule
         config.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 20, bottom: 14, trailing: 20)
         pickImageButton.configuration = config
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 16
+        imageView.layer.cornerRadius = AppStyle.Metrics.cornerRadius
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.quaternaryLabel.cgColor
-        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = AppStyle.Colors.border.cgColor
+        imageView.layer.borderWidth = AppStyle.Metrics.borderWidth
 
         sendPixButton.translatesAutoresizingMaskIntoConstraints = false
         sendPixButton.setTitle("Pix it! ✨", for: .normal)
-        sendPixButton.setTitleColor(.secondaryLabel, for: .normal)
-        sendPixButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        sendPixButton.setTitleColor(AppStyle.Colors.textSecondary, for: .normal)
+        sendPixButton.titleLabel?.font = AppStyle.Fonts.buttonPrimary
         
         NSLayoutConstraint.activate([
             recipientNameField.centerXAnchor.constraint(equalTo: centerXAnchor),

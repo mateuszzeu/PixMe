@@ -22,7 +22,7 @@ class MainView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = AppStyle.Colors.background
         setupUI()
     }
     
@@ -43,15 +43,15 @@ class MainView: UIView {
         addSubview(logoutButton)
         
         nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nicknameLabel.font = UIFont.systemFont(ofSize: 13)
-        nicknameLabel.textColor = .secondaryLabel
+        nicknameLabel.font = AppStyle.Fonts.labelSmall
+        nicknameLabel.textColor = AppStyle.Colors.textSecondary
         
         receivedImageView.translatesAutoresizingMaskIntoConstraints = false
         receivedImageView.contentMode = .scaleAspectFill
-        receivedImageView.layer.cornerRadius = 16
+        receivedImageView.layer.cornerRadius = AppStyle.Metrics.cornerRadius
         receivedImageView.clipsToBounds = true
-        receivedImageView.layer.borderColor = UIColor.quaternaryLabel.cgColor
-        receivedImageView.layer.borderWidth = 0.5
+        receivedImageView.layer.borderColor = AppStyle.Colors.border.cgColor
+        receivedImageView.layer.borderWidth = AppStyle.Metrics.borderWidth
 
         
 //        pixMessageField.translatesAutoresizingMaskIntoConstraints = false
@@ -60,26 +60,26 @@ class MainView: UIView {
 //        pixMessageField.text = "You've got a Pix!"
 
         senderNicknameLabel.translatesAutoresizingMaskIntoConstraints = false
-        senderNicknameLabel.font = UIFont.systemFont(ofSize: 10)
-        senderNicknameLabel.textColor = .secondaryLabel
-        senderNicknameLabel.alpha = 0.5
+        senderNicknameLabel.font = AppStyle.Fonts.labelTiny
+        senderNicknameLabel.textColor = AppStyle.Colors.textSecondary
+        senderNicknameLabel.alpha = AppStyle.Metrics.labelFaintAlpha
         senderNicknameLabel.text = ""
 
         dateReceivedLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateReceivedLabel.font = UIFont.systemFont(ofSize: 10)
-        dateReceivedLabel.textColor = .secondaryLabel
-        dateReceivedLabel.alpha = 0.5
+        dateReceivedLabel.font = AppStyle.Fonts.labelTiny
+        dateReceivedLabel.textColor = AppStyle.Colors.textSecondary
+        dateReceivedLabel.alpha = AppStyle.Metrics.labelFaintAlpha
         dateReceivedLabel.text = ""
 
         createPixButton.translatesAutoresizingMaskIntoConstraints = false
         createPixButton.setTitle("Send a Pix ✨", for: .normal)
-        createPixButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        createPixButton.setTitleColor(.secondaryLabel, for: .normal)
+        createPixButton.titleLabel?.font = AppStyle.Fonts.buttonPrimary
+        createPixButton.setTitleColor(AppStyle.Colors.textSecondary, for: .normal)
 
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        logoutButton.setTitleColor(.label, for: .normal)
+        logoutButton.titleLabel?.font = AppStyle.Fonts.buttonPrimary
+        logoutButton.setTitleColor(AppStyle.Colors.textPrimary, for: .normal)
         
         NSLayoutConstraint.activate([
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
