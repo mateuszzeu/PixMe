@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		6E3DC18A2DC5FC5900B90315 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E6F8A372DBCEC3F00424A7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6F8A3E2DBCEC3F00424A7D;
+			remoteInfo = PixMe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		6E3DC1862DC5FC5900B90315 /* PixMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6F8A3F2DBCEC3F00424A7D /* PixMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -21,6 +32,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6E3DC1872DC5FC5900B90315 /* PixMeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PixMeTests;
+			sourceTree = "<group>";
+		};
 		6E6F8A412DBCEC3F00424A7D /* PixMe */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6E3DC1832DC5FC5900B90315 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E6F8A3C2DBCEC3F00424A7D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6F8A412DBCEC3F00424A7D /* PixMe */,
+				6E3DC1872DC5FC5900B90315 /* PixMeTests */,
 				6E6F8A402DBCEC3F00424A7D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6F8A3F2DBCEC3F00424A7D /* PixMe.app */,
+				6E3DC1862DC5FC5900B90315 /* PixMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +86,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6E3DC1852DC5FC5900B90315 /* PixMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E3DC18E2DC5FC5900B90315 /* Build configuration list for PBXNativeTarget "PixMeTests" */;
+			buildPhases = (
+				6E3DC1822DC5FC5900B90315 /* Sources */,
+				6E3DC1832DC5FC5900B90315 /* Frameworks */,
+				6E3DC1842DC5FC5900B90315 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E3DC18B2DC5FC5900B90315 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6E3DC1872DC5FC5900B90315 /* PixMeTests */,
+			);
+			name = PixMeTests;
+			packageProductDependencies = (
+			);
+			productName = PixMeTests;
+			productReference = 6E3DC1862DC5FC5900B90315 /* PixMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6E6F8A3E2DBCEC3F00424A7D /* PixMe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E6F8A552DBCEC4000424A7D /* Build configuration list for PBXNativeTarget "PixMe" */;
@@ -93,6 +141,11 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					6E3DC1852DC5FC5900B90315 = {
+						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 1630;
+						TestTargetID = 6E6F8A3E2DBCEC3F00424A7D;
+					};
 					6E6F8A3E2DBCEC3F00424A7D = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -113,11 +166,19 @@
 			projectRoot = "";
 			targets = (
 				6E6F8A3E2DBCEC3F00424A7D /* PixMe */,
+				6E3DC1852DC5FC5900B90315 /* PixMeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6E3DC1842DC5FC5900B90315 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E6F8A3D2DBCEC3F00424A7D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +189,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6E3DC1822DC5FC5900B90315 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6E6F8A3B2DBCEC3F00424A7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +205,54 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6E3DC18B2DC5FC5900B90315 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E6F8A3E2DBCEC3F00424A7D /* PixMe */;
+			targetProxy = 6E3DC18A2DC5FC5900B90315 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		6E3DC18C2DC5FC5900B90315 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 434W4NYSB5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzeu.PixMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixMe";
+			};
+			name = Debug;
+		};
+		6E3DC18D2DC5FC5900B90315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 434W4NYSB5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzeu.PixMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PixMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PixMe";
+			};
+			name = Release;
+		};
 		6E6F8A562DBCEC4000424A7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -316,6 +431,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E3DC18E2DC5FC5900B90315 /* Build configuration list for PBXNativeTarget "PixMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3DC18C2DC5FC5900B90315 /* Debug */,
+				6E3DC18D2DC5FC5900B90315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6E6F8A3A2DBCEC3F00424A7D /* Build configuration list for PBXProject "PixMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
